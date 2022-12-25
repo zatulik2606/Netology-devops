@@ -9,7 +9,7 @@ ________________________________________
 ________________________________________
 Задание 2. Memcached.
 Установите и запустите memcached.
-![Memcached install](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/memcachedinstall.png)
+![Memcachedinstall](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/memcachedinstall.png)
   ________________________________________
 Задание 3. Удаление по TTL в Memcached.
 Запишите в memcached несколько ключей с любыми именами и значениями, для которых выставлен TTL 5.
