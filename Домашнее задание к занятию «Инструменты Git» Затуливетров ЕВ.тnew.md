@@ -66,6 +66,7 @@ Update CHANGELOG.md
 
 commit 6ae64e247b332925b872447e9ce869657281c2bf
 
+
 registry: Fix panic when server is unreachable
 
 
@@ -86,10 +87,12 @@ Since these links were in the soon-to-be-deprecated 0.11 language section, I thi
 
 
 
+
 commit 06275647e2b53d97d4f0a19a0fec11f6d69820b5
 
 
 Update CHANGELOG.md
+
 
 
 
@@ -100,6 +103,7 @@ command: Fix bug when using terraform login on Windows
 
 
 
+
 commit 4b6d06cc5dcb78af637bbb19c198faff37a066ed
 
 
@@ -107,10 +111,12 @@ Update CHANGELOG.md
 
 
 
+
 commit dd01a35078f040ca984cdd349f18d0b67e486c35
 
 
 Update CHANGELOG.md
+
 
 
 
@@ -125,14 +131,19 @@ Cleanup after v0.12.23 release
 
 
 
+
 commit 5af1e6234ab6da412fb8637393c5a17a1b293663 Author: Martin Atkins mart@degeneration.co.uk Date: Tue Apr 21 16:28:59 2020 -0700
+
 
 
 
 commit 8c928e83589d90a031f811fae52a81be7153e82f Author: Martin Atkins mart@degeneration.co.uk Date: Thu Apr 2 18:04:39 2020 -0700
 
 
+
 Определяем по раннее созданному:
+
+
 
 
 git show 8c928e8 | grep "func providerSource" +func providerSource(services *disco.Disco) getproviders.Source {
@@ -149,7 +160,9 @@ git show 8c928e8 | grep "func providerSource" +func providerSource(services *dis
 git log -S 'globalPluginDirs'
 
 
+
 commit 65c4ba736375607b6af6c035972f7f151232b6c6 Author: Valeriy Pastushenko i@combin.name Date: Sat May 21 19:53:24 2022 +0300
+
 
 Remove terraform binary
 
@@ -157,12 +170,16 @@ Remove terraform binary
 
 commit 125eb51dc40b049b38bf2ed11c32c6f594c8ef96 Author: Alisdair McDiarmid alisdair@users.noreply.github.com Date: Thu May 5 10:12:00 2022 -0400
 
+
 Remove accidentally-committed binary
 
 
 Also add this path to .gitignore to prevent future mistakes.
 
+
+
 commit 22c121df8631c4499d070329c9aa7f5b291494e1 Author: Anna Winkler 3526523+annawinkler@users.noreply.github.com Date: Tue May 3 12:28:41 2022 -0600
+
 
 Bump compatibility version to 1.3.0 for terraform core release (#30988)
 
@@ -182,6 +199,8 @@ Don't show data while input if sensitive
 
 
 commit 35a058fb3ddfae9cfee0b3893822c9a95b920f4c Author: Martin Atkins mart@degeneration.co.uk Date: Thu Oct 19 17:40:20 2017 -0700
+
+
 
 main: configure credentials from the CLI config file
 
