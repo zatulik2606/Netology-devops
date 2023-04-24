@@ -32,6 +32,8 @@ parent 9ea88f22fc6269854151c571162c5bcf958bee2
 
 3. Перечислите хеши и комментарии всех коммитов, которые были сделаны между тегами v0.12.23 и v0.12.24.
 
+
+
 git log v0.12.23..v0.12.24
 
 commit 33ff1c03bb960b332be3af2e333462dde88b279e (tag: v0.12.24)
@@ -82,7 +84,8 @@ Cleanup after v0.12.23 release
 
 
 
-Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).
+4. Найдите коммит, в котором была создана функция func providerSource, её определение в коде выглядит так: func providerSource(...) (вместо троеточия перечислены аргументы).
+
 
 
 commit 5af1e6234ab6da412fb8637393c5a17a1b293663 Author: Martin Atkins mart@degeneration.co.uk Date: Tue Apr 21 16:28:59 2020 -0700
@@ -99,17 +102,21 @@ git show 8c928e8 | grep "func providerSource" +func providerSource(services *dis
 
 Значит это commit: 8c928e83589d90a031f811fae52a81be7153e82f
 
-4. Найдите все коммиты, в которых была изменена функция globalPluginDirs.
+
+5. Найдите все коммиты, в которых была изменена функция globalPluginDirs.
 
 
 git log -S 'globalPluginDirs'
+
 
 commit 65c4ba736375607b6af6c035972f7f151232b6c6 Author: Valeriy Pastushenko i@combin.name Date: Sat May 21 19:53:24 2022 +0300
 Remove terraform binary
 
 
+
 commit 125eb51dc40b049b38bf2ed11c32c6f594c8ef96 Author: Alisdair McDiarmid alisdair@users.noreply.github.com Date: Thu May 5 10:12:00 2022 -0400
 Remove accidentally-committed binary
+
 
 Also add this path to .gitignore to prevent future mistakes.
 commit 22c121df8631c4499d070329c9aa7f5b291494e1 Author: Anna Winkler 3526523+annawinkler@users.noreply.github.com Date: Tue May 3 12:28:41 2022 -0600
@@ -124,6 +131,7 @@ commit 7c7e5d8f0a6a50812e6e4db3016ebfd36fa5eaef Author: Valeriy Pastushenko i@co
 Don't show data while input if sensitive
 
 
+
 commit 35a058fb3ddfae9cfee0b3893822c9a95b920f4c Author: Martin Atkins mart@degeneration.co.uk Date: Thu Oct 19 17:40:20 2017 -0700
 main: configure credentials from the CLI config file
 
@@ -131,7 +139,9 @@ main: configure credentials from the CLI config file
 commit c0b17610965450a89598da491ce9b6b5cbd6393f Author: James Bardin j.bardin@gmail.com
 
 
-5. Кто автор функции synchronizedWriters?
+6. Кто автор функции synchronizedWriters?
+
+
 
 
 commit 5ac311e2a91e381e2f52234668b49ba670aa0fe5
