@@ -22,13 +22,18 @@ commit aefead2207ef7e2aa5dc81a34aedf0cad4c32545
 
 
 commit 85024d3100126de36331c6982bfaac02cdab9e76
+
+
 Тег: v0.12.23
 
 
 
 2. Сколько родителей у коммита b8d720? Напишите их хеши.
 
+
+
 parent 56cd7859e05c36c06b56d013b55a252d0bb7e158
+
 
 parent 9ea88f22fc6269854151c571162c5bcf958bee2
 
