@@ -133,12 +133,17 @@ CONTAINER ID   IMAGE      	COMMAND              	CREATED      	STATUS      	PORT
 Удаляем контейнер.
 
 root@vagrant:~/ter-homeworks/01/src# docker ps
+
 CONTAINER ID   IMAGE      	COMMAND              	CREATED     	STATUS     	PORTS              	NAMES
 55418d3872c2   448a08f1d2f9   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   0.0.0.0:8000->80/tcp   hello-world
+
 root@vagrant:~/ter-homeworks/01/src# docker stop 55418d3872c2
 55418d3872c2
+
 root@vagrant:~/ter-homeworks/01/src# docker rm 55418d3872c2
+
 55418d3872c2
+
 
 
 </code></pre>
