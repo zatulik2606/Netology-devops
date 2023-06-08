@@ -40,7 +40,7 @@
 
 
   
- *xG3JFEe5wpUv0EwM* 
+ *3AGArBFnP7TQMvCP* 
   
   
 
@@ -49,34 +49,48 @@
 
 </p>
 <pre><code>
-root@vagrant:~/ter-homeworks/01/src# terraform validate
+ root@vagrant:~/ter-homeworks/01/src# terraform validate
 ╷
 │ Error: Missing name for resource
 │
-│   on main.tf line 23, in resource "docker_image":
-│   23: resource "docker_image" {
+│   on main.tf line 24, in resource "docker_image":
+│   24: resource "docker_image" {
 │
 │ All resource blocks must have 2 labels (type, name).
 ╵
 ╷
 │ Error: Invalid resource name
 │
-│   on main.tf line 28, in resource "docker_container" "1nginx":
-│   28: resource "docker_container" "1nginx" {
+│   on main.tf line 29, in resource "docker_container" "1nginx":
+│   29: resource "docker_container" "1nginx" {
 │
 │ A name must start with a letter or underscore and may contain only letters, digits, underscores, and dashes.
 
-Необходимо для 23 строки указать имя.
-Для 28 строки убрать значение “1” в названии.
+Error: Reference to undeclared resource
+│
+│   on main.tf line 31, in resource "docker_container" "nginx":
+│   31:   name  = "example_${random_password.random_string_fake.resuld}"
+│
+│ A managed resource "random_password" "random_string_fake" has not been declared in the root module.
 
-resource "docker_image" "nginx" {
-  name     	= "nginx:latest"
-  keep_locally = true
-}
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name  = "example_${random_password.random_string_fake.resuld}"
+
+
+
+
+для 24 строки указать имя.
+Для 29 строки убрать значение “1” в названии.
+Для 31 строки задать корректное название
+
+24 resource "docker_image" "nginx" {
+ 25   name     	= "nginx:latest"
+ 26   keep_locally = true
+ 27 }
+ 28
+ 29 resource "docker_container" "nginx" {
+ 30   image = docker_image.nginx.image_id
+ 31   name  = "random_password.random_string"
+
 </code></pre>
 
 
@@ -87,7 +101,8 @@ resource "docker_container" "nginx" {
 <pre><code>
 root@vagrant:~/ter-homeworks/01/src# docker ps
 CONTAINER ID   IMAGE      	COMMAND              	CREATED     	STATUS     	PORTS              	NAMES
-7e8a7548ae28   448a08f1d2f9   "/docker-entrypoint.…"   6 seconds ago   Up 5 seconds   0.0.0.0:8000->80/tcp   example
+c166930c54f8   448a08f1d2f9   "/docker-entrypoint.…"   9 seconds ago   Up 6 seconds   0.0.0.0:8000->80/tcp   random_password.random_string
+
 
 
 
@@ -108,9 +123,10 @@ resource "docker_container" "nginx" {
 
 
 root@vagrant:~/ter-homeworks/01/src# terraform apply -auto-approve
-random_password.random_string: Refreshing state... [id=none]
 docker_image.nginx: Refreshing state... [id=sha256:448a08f1d2f94e8db6db9286fd77a3a4f3712786583720a12f1648abb8cace25nginx:latest]
-docker_container.nginx: Refreshing state... [id=7e8a7548ae28d470202a5e26d4413480837e86dcb9283e5969ac2621d13f5902]
+random_password.random_string: Refreshing state... [id=none]
+docker_container.nginx: Refreshing state... [id=c166930c54f8e9c07c41b5493b660d5f6f2c8850e7483cf982715fbe11ff4e83]
+
 
 
 
@@ -119,8 +135,9 @@ docker_container.nginx: Refreshing state... [id=7e8a7548ae28d470202a5e26d4413480
 
 
 root@vagrant:~/ter-homeworks/01/src# docker ps
-CONTAINER ID   IMAGE      	COMMAND              	CREATED      	STATUS      	PORTS              	NAMES
-55418d3872c2   448a08f1d2f9   "/docker-entrypoint.…"   12 seconds ago   Up 11 seconds   0.0.0.0:8000->80/tcp   hello-world
+CONTAINER ID   IMAGE      	COMMAND              	CREATED     	STATUS     	PORTS              	NAMES
+f722711869c3   448a08f1d2f9   "/docker-entrypoint.…"   7 seconds ago   Up 5 seconds   0.0.0.0:8000->80/tcp   hello-world
+
 
 
 </code></pre>
@@ -133,16 +150,13 @@ CONTAINER ID   IMAGE      	COMMAND              	CREATED      	STATUS      	PORT
 Удаляем контейнер.
 
 root@vagrant:~/ter-homeworks/01/src# docker ps
+CONTAINER ID   IMAGE      	COMMAND              	CREATED          	STATUS          	PORTS              	NAMES
+f722711869c3   448a08f1d2f9   "/docker-entrypoint.…"   About a minute ago   Up About a minute   0.0.0.0:8000->80/tcp   hello-world
+root@vagrant:~/ter-homeworks/01/src# docker stop f722711869c3
+f722711869c3
+root@vagrant:~/ter-homeworks/01/src# docker rm f722711869c3
+f722711869c3
 
-CONTAINER ID   IMAGE      	COMMAND              	CREATED     	STATUS     	PORTS              	NAMES
-55418d3872c2   448a08f1d2f9   "/docker-entrypoint.…"   4 minutes ago   Up 4 minutes   0.0.0.0:8000->80/tcp   hello-world
-
-root@vagrant:~/ter-homeworks/01/src# docker stop 55418d3872c2
-55418d3872c2
-
-root@vagrant:~/ter-homeworks/01/src# docker rm 55418d3872c2
-
-55418d3872c2
 
 
 
@@ -152,24 +166,18 @@ root@vagrant:~/ter-homeworks/01/src# docker rm 55418d3872c2
 <pre><code
 
 Удаляем terraform файлы
-
 root@vagrant:~/ter-homeworks/01/src# terraform destroy
-docker_image.nginx: Refreshing state... [id=sha256:448a08f1d2f94e8db6db9286fd77a3a4f3712786583720a12f1648abb8cace25nginx:latest]
 random_password.random_string: Refreshing state... [id=none]
-docker_container.nginx: Refreshing state... [id=55418d3872c21f6b255c1f4fa8832f8efbda82e85dda44ecbbb032817a9c80de]
+docker_image.nginx: Refreshing state... [id=sha256:448a08f1d2f94e8db6db9286fd77a3a4f3712786583720a12f1648abb8cace25nginx:latest]
+docker_container.nginx: Refreshing state... [id=f722711869c3678013ce092ddb52d37322b3e022e7d38ae9edaaaeed6fe38f17]
 
-
-</code></pre>
-
-</p>
-<pre><code
 
 Данные файла terraform.tfstate.
 {
   "version": 4,
   "terraform_version": "1.4.6",
-  "serial": 11,
-  "lineage": "a5054f07-cfce-7d77-fe96-1ea1dc807025",
+  "serial": 10,
+  "lineage": "367c51a0-d7b1-beb6-315a-bfd2d1e4279f",
   "outputs": {},
   "resources": [],
   "check_results": null
