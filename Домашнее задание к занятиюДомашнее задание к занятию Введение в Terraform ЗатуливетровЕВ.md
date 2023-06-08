@@ -184,6 +184,11 @@ docker_container.nginx: Refreshing state... [id=55418d3872c21f6b255c1f4fa8832f8e
 </p>
 <pre><code
 
+По [ссылке](https://registry.terraform.io/providers/kreuzwerker/docker/latest/docs/resources/image) есть описание:
+
+
+**keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.**
+
 keep_locally = true
 
 
