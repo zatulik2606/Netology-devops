@@ -130,7 +130,7 @@ description = "type_of_standard"
 
 Изменений нет
 
-![nochanges](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/nochangesnew.png)
+![nochanges](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/nochangeslast.png)
 
 
 
