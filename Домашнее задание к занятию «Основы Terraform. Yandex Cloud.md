@@ -259,20 +259,6 @@ locals {
 
 </code></pre>
 
-Создал файл с локальными переменными
-
-</p>
-<pre><code>	
-
-locals {
-  vm_web = "netology-develop-platform-web"
-}
-
-locals {
-  vm_db = "netology-develop-platform-db"
-}
-
-</code></pre>
 
 Так изменил в main
 
