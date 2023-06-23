@@ -199,6 +199,66 @@ web_instance_public_ip = "130.193.51.2"
 2. Замените переменные с именами ВМ из файла variables.tf на созданные вами local переменные.
 3. Примените изменения.
 
+Задал новые переменные.
+
+</p>
+<pre><code>	
+
+variable "vm_name" {
+  type    	= string
+  default 	= "platform"
+  description = "platform"
+}
+
+variable "tutor" {
+  type    	= string
+  default 	= "netology"
+  description = "netology"
+}
+
+variable "kurs" {
+  type    	= string
+  default 	= "develop"
+  description = "develop"
+}
+
+variable "web" {
+  type    	= string
+  default 	= "web"
+  description = "web"
+}
+
+variable "db" {
+  type    	= string
+  default 	= "db"
+  description = "db"
+}
+
+
+</code></pre>
+
+Теперь local выгядит так:
+</p>
+<pre><code>	
+
+
+locals {
+  vm_web = "${var.tutor}-${var.kurs}-${var.vm_name}-${var.web}"
+}
+
+locals {
+  vm_db = "${var.tutor}-${var.kurs}-${var.vm_name}-${var.db}"
+}
+locals {
+	vm_db_resources 	= {core = "2", mem = "2", frac = "20"}
+	vm_web_resources	= {core = "2", mem = "1", frac = "5"}
+	sport           	= "1"
+	key             	= "ubuntu:${var.vms_ssh_root_key}"
+}
+
+
+</code></pre>
+
 Создал файл с локальными переменными
 
 </p>
