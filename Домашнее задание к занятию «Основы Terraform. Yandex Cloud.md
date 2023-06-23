@@ -130,7 +130,7 @@ description = "type_of_standard"
 
 Изменений нет
 
-![nochanges](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/zadanie2notchangesterraform.png)
+![nochanges](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/nochangesnew.png)
 
 
 
@@ -356,32 +356,9 @@ metadata = {
 Изменений нет, конфиги спрятаны:
 </p>
 <pre><code>	
-root@vagrant:~/ter-homeworks/02/src# terraform plan
-yandex_vpc_network.develop: Refreshing state... [id=enp7kbuhthkdu5mnmue5]
-data.yandex_compute_image.ubuntu: Reading...
-data.yandex_compute_image.ubuntu-2004-lts: Reading...
-data.yandex_compute_image.ubuntu-2004-lts: Read complete after 0s [id=fd84n8eontaojc77hp0u]
-data.yandex_compute_image.ubuntu: Read complete after 0s [id=fd84n8eontaojc77hp0u]
-yandex_vpc_subnet.develop: Refreshing state... [id=e9bdt72uke0i18lc20h1]
-yandex_compute_instance.platform-db: Refreshing state... [id=fhm0aqj52806j8k5dqsd]
-yandex_compute_instance.platform: Refreshing state... [id=fhm5rp6epkhtkco97mvh]
 
-Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
-  ~ update in-place
+ ![yandexVM](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/nochanges.png)
 
-Terraform will perform the following actions:
-
-   #yandex_compute_instance.platform-db will be updated in-place
-  ~ resource "yandex_compute_instance" "platform-db" {
-    	id                    	= "fhm0aqj52806j8k5dqsd"
-  	~ metadata              	= {
-      	~ "ssh-keys"       	= "ubuntu:ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCvsK42eZrQv3q7eGtuSkxls/8YwOI9XeFjJBQnAxzPMM623wvrkURwxMqFZfgQbIFs5n7BMoQAZPt+LLKlrrAGYAQkoUFuBR++vXr4qynON30i7fyGxAt3iQjpKHE3ZHi8bF20a0tTTJRlH6YmSgrWNttwDBY20O+Z0jtFMYRFSNK/Rf3z/bwPBUbYU49OfJQsUJye4m2BMrsjMQ2i6KW/1Wl5TwlSh2LrWjG2aY0Z1IhOoYvdhlZc1tpOtLs1LSZOLFfc0yTWU0+snyxbwAMzjZl1geKybmYXRbBGmkKxK9lnOgfn19CMJvjYspYKnWx37ABMHTTi+Cb2uN1DwkfjHABnazsimrh+yrr1yoIa4lFCDAMwTSnT+KWedZdNsk7ncOAn7NR9AfQ9wNiehZpCpAMP0B5+yb5mCtHlRxrB9L97VY7Lc5ABFB4AggobpsbrzyXk7GDKWTlG2Ht35/Y8D47RMzfKDJXizIo+MsFnMjxceEoaqPLCCn5KNeWJvS8= root@vagrant" -> "ubuntu:<your_ssh_ed25519_key>"
-        	# (1 unchanged element hidden)
-    	}
-    	name                  	= "netology-develop-platform-db"
-    	# (8 unchanged attributes hidden)
-
-    	# (6 unchanged blocks hidden)
 </code></pre>
 
 
