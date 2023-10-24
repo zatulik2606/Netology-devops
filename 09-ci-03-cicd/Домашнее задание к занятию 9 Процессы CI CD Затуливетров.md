@@ -1,4 +1,4 @@
-# Домашнее задание к занятию 9 «Процессы CI/CD»
+# Домашнее задание к занятию 9 «Процессы CI/CD» Затуливетров
 
 ## Подготовка к выполнению
 
@@ -7,8 +7,14 @@
 3. Добавьте в [files](./infrastructure/files/) файл со своим публичным ключом (id_rsa.pub). Если ключ называется иначе — найдите таску в плейбуке, которая использует id_rsa.pub имя, и исправьте на своё.
 4. Запустите playbook, ожидайте успешного завершения.
 5. Проверьте готовность SonarQube через [браузер](http://localhost:9000).
+
+![Sonar](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/sonaropen.png)
+
 6. Зайдите под admin\admin, поменяйте пароль на свой.
 7.  Проверьте готовность Nexus через [бразуер](http://localhost:8081).
+
+![Nexus](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/nexusopen.png)
+
 8. Подключитесь под admin\admin123, поменяйте пароль, сохраните анонимный доступ.
 
 ## Знакомоство с SonarQube
@@ -25,6 +31,8 @@
 8. Запустите анализатор повторно — проверьте, что QG пройдены успешно.
 9. Сделайте скриншот успешного прохождения анализа, приложите к решению ДЗ.
 
+![Sonarwithouterrors](https://github.com/zatulik2606/Netology-devops/blob/screenshorts/sonarwithouterrors.png)
+
 ## Знакомство с Nexus
 
 ### Основная часть
@@ -40,6 +48,8 @@
 2. В него же загрузите такой же артефакт, но с version: 8_102.
 3. Проверьте, что все файлы загрузились успешно.
 4. В ответе пришлите файл `maven-metadata.xml` для этого артефекта.
+
+[Maven-metadata](https://github.com/zatulik2606/Netology-devops/blob/master/09-ci-03-cicd/maven-metadata.xml)
 
 ### Знакомство с Maven
 
@@ -58,6 +68,7 @@
 3. Проверьте директорию `~/.m2/repository/`, найдите ваш артефакт.
 4. В ответе пришлите исправленный файл `pom.xml`.
 
+[Pom](https://github.com/zatulik2606/Netology-devops/blob/master/09-ci-03-cicd/mvn/pom.xml)
 ---
 
 ### Как оформить решение задания
